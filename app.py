@@ -72,12 +72,14 @@ if section == "Start":
 # -------------------------------
 # DATENSATZ
 # -------------------------------
+
 elif section == "Datensatz":
     st.header("1. Datensatz")
 
     st.markdown("""
     - Datensatz: **Ames Housing Dataset**
     - Quelle: **Kaggle**
+    - Link: [Ames Housing Dataset](https://www.kaggle.com/datasets/shashanknecrothapa/ames-housing-dataset)
     - Reale Verkaufsdaten von Wohnimmobilien in **Ames, Iowa, USA**
     - Zielvariable: **„SalePrice“**
     """)
@@ -88,6 +90,118 @@ elif section == "Datensatz":
 
     st.subheader("Statistische Übersicht (Rohdatensatz)")
     st.write(raw_df.describe())
+
+    st.subheader("Bedeutung der Spalten")
+
+    column_info = pd.DataFrame({
+        "Spalte": [
+            "Order", "PID", "MS SubClass", "MS Zoning", "Lot Frontage", "Lot Area",
+            "Street", "Alley", "Lot Shape", "Land Contour", "Utilities", "Lot Config",
+            "Land Slope", "Neighborhood", "Condition 1", "Condition 2", "Bldg Type",
+            "House Style", "Overall Qual", "Overall Cond", "Year Built", "Year Remod/Add",
+            "Roof Style", "Roof Matl", "Exterior 1st", "Exterior 2nd", "Mas Vnr Type",
+            "Mas Vnr Area", "Exter Qual", "Exter Cond", "Foundation", "Bsmt Qual",
+            "Bsmt Cond", "Bsmt Exposure", "BsmtFin Type 1", "BsmtFin SF 1",
+            "BsmtFin Type 2", "BsmtFin SF 2", "Bsmt Unf SF", "Total Bsmt SF",
+            "Heating", "Heating QC", "Central Air", "Electrical", "1st Flr SF",
+            "2nd Flr SF", "Low Qual Fin SF", "Gr Liv Area", "Bsmt Full Bath",
+            "Bsmt Half Bath", "Full Bath", "Half Bath", "Bedroom AbvGr",
+            "Kitchen AbvGr", "Kitchen Qual", "TotRms AbvGrd", "Functional",
+            "Fireplaces", "Fireplace Qu", "Garage Type", "Garage Yr Blt",
+            "Garage Finish", "Garage Cars", "Garage Area", "Garage Qual",
+            "Garage Cond", "Paved Drive", "Wood Deck SF", "Open Porch SF",
+            "Enclosed Porch", "3Ssn Porch", "Screen Porch", "Pool Area",
+            "Pool QC", "Fence", "Misc Feature", "Misc Val", "Mo Sold",
+            "Yr Sold", "Sale Type", "Sale Condition", "SalePrice"
+        ],
+        "Bedeutung auf Deutsch": [
+            "laufende Reihenfolge / Datensatznummer",
+            "Grundstücks- oder Objekt-ID",
+            "Gebäudeklasse / Bauart-Kategorie",
+            "Nutzungs- bzw. Wohngebietskategorie",
+            "Straßenfront des Grundstücks",
+            "Grundstücksfläche",
+            "Art der Straße",
+            "Gassenzugang / Zugang über eine Nebenstraße",
+            "Form des Grundstücks",
+            "Geländeverlauf / Geländeform",
+            "Versorgungseinrichtungen",
+            "Grundstücksanordnung",
+            "Hanglage / Gefälle des Grundstücks",
+            "Stadtteil / Lage",
+            "erste Lage- oder Umgebungsbedingung",
+            "zweite Lage- oder Umgebungsbedingung",
+            "Gebäudetyp",
+            "Hausstil / Bauweise",
+            "allgemeine Hausqualität",
+            "allgemeiner Zustand des Hauses",
+            "Baujahr",
+            "Jahr der Renovierung oder Erweiterung",
+            "Dachform",
+            "Dachmaterial",
+            "erstes Außenmaterial",
+            "zweites Außenmaterial",
+            "Art der Mauerverblendung",
+            "Fläche der Mauerverblendung",
+            "Qualität des Außenbereichs / Außenmaterials",
+            "Zustand des Außenbereichs / Außenmaterials",
+            "Fundamenttyp",
+            "Qualität des Kellers",
+            "Zustand des Kellers",
+            "Kellerlage / Offenheit nach außen",
+            "Art des ersten ausgebauten Kellerbereichs",
+            "Fläche des ersten ausgebauten Kellerbereichs",
+            "Art des zweiten ausgebauten Kellerbereichs",
+            "Fläche des zweiten ausgebauten Kellerbereichs",
+            "nicht ausgebaute Kellerfläche",
+            "gesamte Kellerfläche",
+            "Heizungsart",
+            "Qualität/Zustand der Heizung",
+            "zentrale Klimaanlage ja/nein",
+            "elektrische Anlage / Elektroinstallation",
+            "Fläche des Erdgeschosses",
+            "Fläche des Obergeschosses",
+            "Fläche mit einfacher / niedriger Ausbauqualität",
+            "oberirdische Wohnfläche",
+            "Vollbad im Keller",
+            "Gäste-WC / halbes Bad im Keller",
+            "Anzahl der Vollbäder",
+            "Anzahl der halben Bäder / Gäste-WCs",
+            "Schlafzimmer über dem Keller",
+            "Küchen über dem Keller",
+            "Qualität der Küche",
+            "Gesamtzahl der Zimmer über dem Erdgeschoss/Kellerbereich",
+            "Funktionalität / Nutzbarkeit des Hauses",
+            "Anzahl der Kamine",
+            "Qualität des Kamins",
+            "Art der Garage",
+            "Baujahr der Garage",
+            "Ausbauzustand der Garage",
+            "Anzahl der Stellplätze in der Garage",
+            "Garagenfläche",
+            "Qualität der Garage",
+            "Zustand der Garage",
+            "befestigte Einfahrt ja/nein",
+            "Fläche der Holzterrasse",
+            "Fläche der offenen Veranda / des offenen Vorbaus",
+            "Fläche der geschlossenen Veranda",
+            "Fläche der Dreijahreszeiten-Veranda",
+            "Fläche der Veranda mit Fliegengitter / Screen Porch",
+            "Poolfläche",
+            "Qualität des Pools",
+            "Zaun",
+            "sonstiges besonderes Merkmal",
+            "Wert sonstiger Merkmale",
+            "Verkaufsmonat",
+            "Verkaufsjahr",
+            "Verkaufsart",
+            "Verkaufsbedingung",
+            "Verkaufspreis"
+        ]
+    })
+
+    with st.expander("Spaltenübersetzungen anzeigen"):
+        st.dataframe(column_info, use_container_width=True)
 
 # -------------------------------
 # DATA CLEANING
@@ -104,10 +218,9 @@ elif section == "Data Cleaning":
     4. Kategoriale Spalten systematisch prüfen  
     5. Boxplots für wichtige kategoriale Variablen  
     6. Schwächere kategoriale Spalten entfernen  
-    7. Fehlende Werte befüllen  
-    8. Duplikat entfernen  
-    9. Datentypen anpassen  
-    10. Bereinigten Datensatz speichern  
+    7. Fehlende Werte befüllen    
+    8. Datentypen anpassen  
+    9. Bereinigten Datensatz speichern  
     """)
 
     st.subheader("2.1 Überblick über den Rohdatensatz")
@@ -116,7 +229,6 @@ elif section == "Data Cleaning":
     - Probleme:
       - fehlende Werte
       - viele kategoriale Spalten
-      - ein Duplikat
     """)
 
     st.subheader("2.2 Numerische Spalten und Korrelation mit „SalePrice“")
